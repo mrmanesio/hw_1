@@ -9,5 +9,4 @@
      savings: false
  };
 
-alert(appData.money/30);
-  
+alert(appData.money/30);  
