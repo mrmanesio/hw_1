@@ -1,4 +1,4 @@
- let money = prompt('Ваш бюджет на месяц?');
+ let money = +prompt('Ваш бюджет на месяц?');
  let time = prompt('Введите дату в формате YYYY-MM-DD"');
 
  let appData = {
@@ -10,15 +10,58 @@
      savings: false
  };
 
- q1 = prompt('Введите обязательную статью расходов в этом месяце');
- a1 = prompt('Во сколько обойдется?');
+ for (let i = 0; i < 2; i++) {
+     let q = prompt('Введите обязательную статью расходов в этом месяце'),
+         a = +prompt('Во сколько обойдется?');
 
- appData.expenses.q1 = a1;
+     if ((typeof (q) === 'string') && (typeof (q) != null) && (typeof (a) != null) &&
+         a != '' && q != '' && a.length < 50) {
+         appData.expenses[q] = a;
+     } else {
+         console.log("Написал дичь какую-то");
+     }
+ };
 
- q2 = prompt('Введите обязательную статью расходов в этом месяце');
- a2 = prompt('Во сколько обойдется?');
+//  let i = 0;
+//  while (i < 2) {
+//      let q = prompt('Введите обязательную статью расходов в этом месяце'),
+//          a = prompt('Во сколько обойдется?');
 
- appData.expenses.q2 = a2;
+//      if ((typeof (q) === 'string') && (typeof (q) != null) && (typeof (a) != null) &&
+//          a != '' && q != '' && a.length < 50) {
+//          appData.expenses[q] = a;
+//      } else {
+//          console.log("Написал дичь какую-то");
+//      }
+//      i++;
+//  };
 
+//  let i = 0;
+//  do {
+//     let q = prompt('Введите обязательную статью расходов в этом месяце'),
+//          a = prompt('Во сколько обойдется?');
 
-alert(appData.money/30);  
+//      if ((typeof (q) === 'string') && (typeof (q) != null) && (typeof (a) != null) &&
+//          a != '' && q != '' && a.length < 50) {
+//          appData.expenses[q] = a;
+//      } else {
+//          console.log("Написал дичь какую-то");
+//      }
+//      i++;
+//  }
+//  while (i < 2);
+
+ appData.moneyPerDay = appData.money / 30
+
+ alert('Ежедневный бюджет: ' + appData.moneyPerDay);
+
+ if (appData.moneyPerDay < 100) {
+     console.log("Минимальный уровень достатка");
+ } else if (appData.moneyPerDay < 2000) {
+     console.log("Средний уровень достатка");
+ } else if (appData.moneyPerDay > 2000) {
+     console.log("Высокий уровень достатка");
+ } else {
+     console.log("Ошибка");
+
+ }
