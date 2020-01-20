@@ -19,6 +19,7 @@
          appData.expenses[q] = a;
      } else {
          console.log("Написал дичь какую-то");
+         i--;
      }
  };
 
